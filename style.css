@@ -1,0 +1,335 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap');
+
+/* Root Variables */
+:root {
+    --primary-color: #FF007F;
+    --primary-color-hover: #FF4DA6;
+    --background-color: #000;
+    --text-color: #f4f4f9;
+    --secondary-text-color: rgba(200, 200, 200, 0.7);
+    --header-bg-color: rgba(62, 62, 62, 0.9);
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    --border-color: #555;
+    --table-row-bg: #444;
+    --font-family: 'Oswald', sans-serif;
+    --font-size-small: 0.9rem;
+    --font-size-medium: 1rem;
+    --font-size-large: 1.2rem;
+    --font-size-xlarge: 2rem;
+    --font-size-xxlarge: 2.5rem;
+    --gap-size: 20px;
+    --transition-duration: 0.3s;
+}
+
+/* Global Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+}
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--header-bg-color);
+    display: flex;
+    justify-content: space-between; /* Keeps space between text elements */
+    align-items: center;
+    gap: var(--gap-size); /* Space between all direct children */
+    width: 90%;
+    max-width: 1200px;
+    height: 70px;
+    margin: 1em auto;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    flex-wrap: wrap;
+    padding: 0 10px; /* Added padding for better spacing */
+}
+
+header div {
+    display: flex;
+    gap: var(--gap-size); /* Adds space between the elements inside each div */
+}
+
+header a {
+    text-decoration: none;
+    color: var(--secondary-text-color);
+    font-weight: bold;
+    transition: color var(--transition-duration) ease;
+}
+
+header a:hover {
+    color: var(--text-color);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        height: auto; /* Allow height to adjust for content */
+        padding: 10px 0; /* Add padding for top and bottom */
+    }
+
+    header div {
+        flex: none;
+        width: 100%; /* Ensure each div takes full width */
+    }
+
+    header a {
+        font-size: var(--font-size-medium); /* Adjust font size for smaller screens */
+    }
+}
+
+
+/* Home Section */
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+    padding: 0 10px; /* Ensure there's some space on the sides */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    gap: var(--gap-size);
+}
+
+.image-section {
+    flex: 1; /* Ensures image section takes available space */
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+}
+
+.image-section img {
+    max-width: 100%; /* Ensures the image takes the full width without distortion */
+    height: 650px; /* Maintains aspect ratio */
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 10px;
+}
+
+.text-section {
+    flex: 1; /* Ensures text section takes available space */
+    max-width: 50%; /* Limits text section width for better layout */
+    text-align: left;
+}
+
+.text-section h1 {
+    font-size: var(--font-size-xxlarge);
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.cta-button {
+    text-decoration: none;
+    color: black;
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color var(--transition-duration) ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-color-hover);
+    transform: scale(1.05);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 915px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-section {
+        max-width: 100%;
+    }
+
+    .text-section h1 {
+        font-size: var(--font-size-xlarge);
+    }
+
+    .image-section img {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .cta-button {
+        font-size: var(--font-size-medium);
+    }
+
+    /* Adjust table styles */
+    table {
+        font-size: var(--font-size-small);
+    }
+
+    th, td {
+        padding: 8px;
+    }
+     /* Hide the menu by default */
+     .menu-items {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Show the menu when active class is added */
+    .menu-items.active {
+        display: flex;
+    }
+
+    /* Add hamburger icon behavior */
+    .menu-icon {
+        cursor: pointer;
+        display: block;
+        font-size: 30px;
+        color: var(--text-color);
+    }
+
+    /* Adjust text in smaller screens */
+    header a {
+        font-size: var(--font-size-medium);
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Projects and Certificates */
+#Projects, #certificates {
+    padding: 50px;
+    text-align: center;
+    background-color: var(--header-bg-color);
+    color: var(--text-color);
+}
+
+#Projects h1, #Certificates h1, #Skills h1, #AreaOfIntrest h1 {
+    color: #f4f4f9;
+    text-align: center;
+}
+
+/* Slider */
+.slider-container {
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+    margin: 20px auto;
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+    background-color: #222;
+}
+.slider-container img{
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.slider {
+    display: flex;
+    transition: transform var(--transition-duration) ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--header-bg-color);
+    color: var(--text-color);
+    border-right: 2px solid #444;
+}
+
+.slide:last-child {
+    border-right: none;
+}
+
+.slide h2 {
+    font-size: var(--font-size-xlarge);
+    margin-bottom: 10px;
+}
+
+.slide p {
+    font-size: var(--font-size-medium);
+    line-height: 1.5;
+}
+
+/* Skills List */
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--gap-size);
+}
+
+.skills-list li {
+    background-color: var(--text-color);
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Education Section */
+.education-section {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    background: var(--header-bg-color);
+    color: var(--text-color);
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+}
+
+.education-section h2 {
+    text-align: center;
+    font-size: var(--font-size-xlarge);
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-row-bg);
+}
+
+tr:hover {
+    background-color: var(--border-color);
+}
